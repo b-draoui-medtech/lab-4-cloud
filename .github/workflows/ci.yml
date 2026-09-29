@@ -1,0 +1,22 @@
+name: CI
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  build-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Building the project"
+      - run: echo "Build completed"
+  test-job:
+    needs: build-job
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Running tests"
+      - run: echo "Tests completed"
+  deploy-job:
+    needs: test-job
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying the application"
+      - run: echo "Deployment completed"
