@@ -28,6 +28,7 @@ jobs:
           echo "Testing the build output"
           cat build/result.txt
           echo "Test completed"
+      - run: exit 1 
   deploy-app:
     needs: test-app
     runs-on: ubuntu-latest
